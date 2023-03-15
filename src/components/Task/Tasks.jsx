@@ -49,7 +49,7 @@ export const Tasks = ({
   React.useEffect(() => {
     if (activeLection) {
       axios
-        .get(`http://95.163.234.208:7000/api/list/getlist/${activeLection._id}`)
+        .get(`http://95.163.234.208:9000/api/list/getlist/${activeLection._id}`)
         .then((res) => setCompleteMaterial(res.data.published));
     }
   }, [activeLection]);
@@ -68,7 +68,7 @@ export const Tasks = ({
       nums.splice(endIndex, 0, removed);
       nums.map((mat, i) => {
         mat.order = i + 1;
-        axios.patch("http://95.163.234.208:7000/api/lection/updatematerial", {
+        axios.patch("http://95.163.234.208:9000/api/lection/updatematerial", {
           ...mat,
         });
         return mat;

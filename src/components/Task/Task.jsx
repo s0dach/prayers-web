@@ -37,7 +37,7 @@ export const Task = ({
   // const getList = React.useCallback(async () => {
   //   try {
   //     await axios
-  //       .get("http://95.163.234.208:7000/api/list/getlist", {})
+  //       .get("http://95.163.234.208:9000/api/list/getlist", {})
   //       .then((res) => {
   //         const lection = res.data.find((lection) => lection._id === params.id);
   //         setUsersId(lection.usersId);
@@ -64,7 +64,7 @@ export const Task = ({
   const sendLection = async () => {
     await getList();
     await axios
-      .get("http://95.163.234.208:7000/api/list/getlist", {})
+      .get("http://95.163.234.208:9000/api/list/getlist", {})
       .then((res) => {
         const lection = res.data.find((lection) => lection._id === params.id);
         let usersID = lection.usersId;
@@ -119,12 +119,12 @@ export const Task = ({
                     .then((res) => {
                       axios
                         .get(
-                          `http://95.163.234.208:7000/api/list/getlist/${activeLection._id}`
+                          `http://95.163.234.208:9000/api/list/getlist/${activeLection._id}`
                         )
                         .then((res) => {
                           axios
                             .patch(
-                              "http://95.163.234.208:7000/api/lection/updatematerial",
+                              "http://95.163.234.208:9000/api/lection/updatematerial",
                               {
                                 ...material,
                                 complete: true,
@@ -135,7 +135,7 @@ export const Task = ({
                             });
                           axios
                             .patch(
-                              "http://95.163.234.208:7000/api/list/updatelist/",
+                              "http://95.163.234.208:9000/api/list/updatelist/",
                               {
                                 ...activeLection,
                                 usersId: usersID,
@@ -168,12 +168,12 @@ export const Task = ({
                       .then((res) => {
                         axios
                           .get(
-                            `http://95.163.234.208:7000/api/list/getlist/${activeLection._id}`
+                            `http://95.163.234.208:9000/api/list/getlist/${activeLection._id}`
                           )
                           .then((res) => {
                             axios
                               .patch(
-                                "http://95.163.234.208:7000/api/lection/updatematerial",
+                                "http://95.163.234.208:9000/api/lection/updatematerial",
                                 {
                                   ...material,
                                   complete: true,
@@ -184,7 +184,7 @@ export const Task = ({
                               });
                             axios
                               .patch(
-                                "http://95.163.234.208:7000/api/list/updatelist/",
+                                "http://95.163.234.208:9000/api/list/updatelist/",
                                 {
                                   ...activeLection,
                                   usersId: usersID,
@@ -217,12 +217,12 @@ export const Task = ({
                       .then((res) => {
                         axios
                           .get(
-                            `http://95.163.234.208:7000/api/list/getlist/${activeLection._id}`
+                            `http://95.163.234.208:9000/api/list/getlist/${activeLection._id}`
                           )
                           .then((res) => {
                             axios
                               .patch(
-                                "http://95.163.234.208:7000/api/lection/updatematerial",
+                                "http://95.163.234.208:9000/api/lection/updatematerial",
                                 {
                                   ...material,
                                   complete: true,
@@ -233,7 +233,7 @@ export const Task = ({
                               });
                             axios
                               .patch(
-                                "http://95.163.234.208:7000/api/list/updatelist/",
+                                "http://95.163.234.208:9000/api/list/updatelist/",
                                 {
                                   ...activeLection,
                                   usersId: usersID,
@@ -283,7 +283,7 @@ export const Task = ({
                     arr.push(data.data.result.poll.id);
                     axios
                       .patch(
-                        "http://95.163.234.208:7000/api/lection/updatematerial",
+                        "http://95.163.234.208:9000/api/lection/updatematerial",
                         {
                           ...material,
                           pollId: arr,
@@ -294,12 +294,12 @@ export const Task = ({
                   .then((res) => {
                     axios
                       .get(
-                        `http://95.163.234.208:7000/api/list/getlist/${activeLection._id}`
+                        `http://95.163.234.208:9000/api/list/getlist/${activeLection._id}`
                       )
                       .then((res) => {
                         axios
                           .patch(
-                            "http://95.163.234.208:7000/api/lection/updatematerial",
+                            "http://95.163.234.208:9000/api/lection/updatematerial",
                             {
                               ...material,
                               complete: true,
@@ -311,7 +311,7 @@ export const Task = ({
                           });
                         axios
                           .patch(
-                            "http://95.163.234.208:7000/api/list/updatelist/",
+                            "http://95.163.234.208:9000/api/list/updatelist/",
                             {
                               ...activeLection,
                               usersId: usersID,
@@ -351,14 +351,14 @@ export const Task = ({
       materials.forEach((mat) => {
         if (mat.order >= order) {
           mat.order = mat.order - 1;
-          axios.patch("http://95.163.234.208:7000/api/lection/updatematerial", {
+          axios.patch("http://95.163.234.208:9000/api/lection/updatematerial", {
             ...mat,
           });
         }
       });
       axios
         .delete(
-          `http://95.163.234.208:7000/api/lection/deletelection/${material._id}`
+          `http://95.163.234.208:9000/api/lection/deletelection/${material._id}`
         )
         .then(() => getMaterials());
     }

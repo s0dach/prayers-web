@@ -118,7 +118,7 @@ export const AddTask = ({
     let id = 0;
     if (taskIdAdd === null) {
       await axios
-        .post("http://95.163.234.208:7000/api/lection/addmaterial", {
+        .post("http://95.163.234.208:9000/api/lection/addmaterial", {
           order: materials.length + 1,
           owner: params.id,
           text: lastFinishedText,
@@ -139,7 +139,7 @@ export const AddTask = ({
       await materials.forEach((material) => {
         if (Number(material.order) >= Number(taskIdAdd)) {
           axios
-            .patch("http://95.163.234.208:7000/api/lection/updatematerial", {
+            .patch("http://95.163.234.208:9000/api/lection/updatematerial", {
               _id: material._id,
               order: material.order + 1,
               text: material.text,
@@ -152,7 +152,7 @@ export const AddTask = ({
         }
       });
       await axios
-        .post("http://95.163.234.208:7000/api/lection/addmaterial", {
+        .post("http://95.163.234.208:9000/api/lection/addmaterial", {
           order: taskIdAdd,
           owner: params.id,
           text: lastFinishedText,

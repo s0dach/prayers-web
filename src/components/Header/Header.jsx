@@ -24,7 +24,7 @@ export const Header = ({
 
   const onEdit = () => {
     axios
-      .patch("http://95.163.234.208:7000/api/list/updatelist/", {
+      .patch("http://95.163.234.208:9000/api/list/updatelist/", {
         ...list,
         editable: true,
         active: false,
@@ -34,7 +34,7 @@ export const Header = ({
 
   const startLection = async () => {
     await axios
-      .patch("http://95.163.234.208:7000/api/list/updatelist/", {
+      .patch("http://95.163.234.208:9000/api/list/updatelist/", {
         ...list,
         active: true,
       })
@@ -43,7 +43,7 @@ export const Header = ({
 
   const stopLection = async () => {
     await axios
-      .patch("http://95.163.234.208:7000/api/list/updatelist/", {
+      .patch("http://95.163.234.208:9000/api/list/updatelist/", {
         ...list,
         active: false,
         usersId: [],
@@ -52,7 +52,7 @@ export const Header = ({
       .then(() => {
         materials.forEach((mat) => {
           axios
-            .patch("http://95.163.234.208:7000/api/lection/updatematerial/", {
+            .patch("http://95.163.234.208:9000/api/lection/updatematerial/", {
               ...mat,
               optionsReply: [],
               pollId: [],
@@ -68,7 +68,7 @@ export const Header = ({
 
   const closeEdit = async () => {
     await axios
-      .patch("http://95.163.234.208:7000/api/list/updatelist/", {
+      .patch("http://95.163.234.208:9000/api/list/updatelist/", {
         ...list,
         editable: false,
         active: false,
@@ -81,12 +81,12 @@ export const Header = ({
 
   const onDublicateList = async () => {
     await axios
-      .post("http://95.163.234.208:7000/api/list/dublicatelist", {
+      .post("http://95.163.234.208:9000/api/list/dublicatelist", {
         name: list.name,
       })
       .then((res) => {
         materials.forEach((material) => {
-          axios.post("http://95.163.234.208:7000/api/lection/addmaterial", {
+          axios.post("http://95.163.234.208:9000/api/lection/addmaterial", {
             order: material.order,
             owner: res.data._id,
             text: material.text,

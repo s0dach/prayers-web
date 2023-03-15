@@ -115,7 +115,7 @@ export const EditTask = ({
           : lastFinishedText + `\`[Вложения:${file.name}]\``,
     };
     axios
-      .patch("http://95.163.234.208:7000/api/lection/updatematerial", {
+      .patch("http://95.163.234.208:9000/api/lection/updatematerial", {
         ...editMaterial,
         text: obj.text,
       })

@@ -57,7 +57,7 @@ export const PollAdd = ({
     const OptionValues = preOptionValues.filter((element) => element !== "");
     if (taskIdAdd === null) {
       await axios
-        .post("http://95.163.234.208:7000/api/lection/addpoll", {
+        .post("http://95.163.234.208:9000/api/lection/addpoll", {
           order: materials.length + 1,
           owner: params.id,
           text: `<h1><span style="color: rgb(102, 163, 224);">Опрос:</span><span style="background-color: rgb(204, 224, 245); color: rgb(102, 163, 224);"> ${inputValue}
@@ -77,7 +77,7 @@ export const PollAdd = ({
       await materials.forEach((material) => {
         if (Number(material.order) >= Number(taskIdAdd)) {
           axios
-            .patch("http://95.163.234.208:7000/api/lection/updatematerial", {
+            .patch("http://95.163.234.208:9000/api/lection/updatematerial", {
               ...material,
               _id: material._id,
               owner: params.id,
@@ -91,7 +91,7 @@ export const PollAdd = ({
         }
       });
       await axios
-        .post("http://95.163.234.208:7000/api/lection/addpoll", {
+        .post("http://95.163.234.208:9000/api/lection/addpoll", {
           order: taskIdAdd,
           owner: params.id,
           text: `<h1><span style="color: rgb(102, 163, 224);">Опрос:</span><span style="background-color: rgb(204, 224, 245); color: rgb(102, 163, 224);"> ${inputValue}
