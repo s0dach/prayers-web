@@ -36,7 +36,7 @@ export const Login = () => {
             />
             <div className="captcha">
               <ReCAPTCHA
-                sitekey="6Leu1PQjAAAAAMELXL78MW0jcVxFFvakB1BItxnk"
+                sitekey="6LcO99InAAAAAJx6kTuzLjXVFdN7WVX5k2Lokr2e"
                 onChange={() => setVerifed(true)}
               />
             </div>
